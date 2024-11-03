@@ -1,25 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import Student from './Student'
+import react,{useState} from 'react';
 
 function App() {
+  const[name,setName]=useState("Amit")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Props With Functional Component :)</h1>
+      <Student
+        name={name}
+        email={"amitpandeye120@gmail.com"}
+        address={"noida,delhi"}>
+      </Student>
+      <button onClick={()=>(setName("Pandey"))}>Update Name</button>
+      {/* <Student name={name}
+      email={"amitpandey.harmaig@gmai.com"}
+      address={"Ghaziabad,Delhi"}>
+      </Student>
+      <button onClick={()=>(setName("Pandeji"))}>Update Name</button> */}
     </div>
   );
 }
-
-export default App;
+function Amit(){
+  const[name,setName]=useState("Pandey")
+  return(
+    <div className="App">
+      <Student name={name}
+      email={"amitpandey.harmaig@gmai.com"}
+      address={"Ghaziabad,Delhi"}>
+      </Student>
+      <button onClick={()=>(setName("Amit"))}>Update Name</button>
+    </div>
+  )
+}
+export default Amit;
